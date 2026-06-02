@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import Terminal from './components/Terminal';
 import BootSequence from './components/BootSequence';
 import Navbar from './components/Navbar';
@@ -45,6 +46,8 @@ export default function App() {
           <CursorGag />
         </>
       )}
+
+      <Analytics />
     </div>
   );
 }
