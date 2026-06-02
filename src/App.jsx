@@ -5,6 +5,7 @@ import BootSequence from './components/BootSequence';
 import Navbar from './components/Navbar';
 import EasterEggInput from './components/EasterEggInput';
 import CursorGag from './components/CursorGag';
+import Mascot from './components/Mascot';
 import About from './sections/About';
 import Projects from './sections/Projects';
 import Experience from './sections/Experience';
@@ -44,6 +45,7 @@ export default function App() {
         <>
           <EasterEggInput glitchRef={terminalRef} />
           <CursorGag />
+          <Mascot />
         </>
       )}
 

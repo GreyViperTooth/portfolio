@@ -69,10 +69,7 @@ Psst... there are a few hidden commands. 👀`,
   },
 
   coffee: {
-    output: `Brewing... ☕
-ERROR: FileNotFoundException: coffee.java not found in classpath
-  at caffeine.jvm.CoffeeMachine.brew(CoffeeMachine.java:42)
-  at maanav.brain.FocusManager.start(FocusManager.java:1)`,
+    output: 'Brewing... ☕\nERROR: FileNotFoundException: coffee.java not found in classpath\n  at caffeine.jvm.CoffeeMachine.brew(CoffeeMachine.java:42)\n  at maanav.brain.FocusManager.start(FocusManager.java:1)',
     type: 'normal',
   },
 
