@@ -4,10 +4,10 @@ import styles from './Mascot.module.css';
 
 const QUIPS = [
   "psst… type 'help'",
-  'hire my human pls 👻',
-  '*haunts your ATS*',
-  '> sudo give_job',
-  'boo! (and hire him)',
+  '404: sleep not found',
+  '*booing in Python*',
+  'I see you lurking 👁️',
+  '¯\\_(ツ)_/¯.exe',
 ];
 
 function GhostIcon({ excited }) {

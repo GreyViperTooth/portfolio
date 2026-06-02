@@ -139,10 +139,10 @@ Hint: hire-me.txt is in /home/maanav/ 📄`,
 };
 
 export const IDLE_GAG_SEQUENCES = [
-  { cmd: 'ls -la /dreams', output: 'total 0\n-rw-r--r--  hire-me.txt\n-rw-r--r--  build-cool-things.txt' },
-  { cmd: 'git push origin dream-job', output: 'Everything up-to-date ✓' },
-  { cmd: 'ping recruiter', output: '64 bytes from recruiter: icmp_seq=1 ttl=64 time=0.001 ms' },
-  { cmd: 'echo "please hire me"', output: 'please hire me' },
+  { cmd: 'ls -la /projects', output: 'drwxr-xr-x  f1tenth-drl/\ndrwxr-xr-x  slam-dashboard/\ndrwxr-xr-x  cursorpilot/' },
+  { cmd: 'git status', output: 'On branch main\nnothing to commit — everything works... probably' },
   { cmd: 'cat /etc/motivation', output: 'Ship it. Learn it. Repeat.' },
-  { cmd: 'curl -s https://maanav.dev/hire', output: '{ "status": "available", "vibe": "great" }' },
+  { cmd: 'htop', output: 'CPU [████████░░] 82%  (thinking...)\nMEM [████░░░░░░] 41%  (ideas stored)' },
+  { cmd: 'whoami', output: 'maanav — not a robot, but working on it' },
+  { cmd: 'uptime', output: 'up 25 years, 0 bugs (unconfirmed)' },
 ];

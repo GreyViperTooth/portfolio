@@ -24,7 +24,7 @@ export default function Contact() {
 
   return (
     <section id="contact" ref={sectionRef} className={`${styles.section} reveal ${visible ? 'visible' : ''}`}>
-      <Prompt command="curl https://maanav.dev/contact.json">
+      <Prompt command="curl maanavak.vercel.app/contact.json">
         <div className={styles.json}>
           <div className={styles.brace}><span className="text-fg">{'{'}</span></div>
 
