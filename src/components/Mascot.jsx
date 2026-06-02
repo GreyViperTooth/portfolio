@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
 import { useIdleTimer } from '../hooks/useIdleTimer';
 import styles from './Mascot.module.css';
 
@@ -10,70 +10,80 @@ const QUIPS = [
   '¯\\_(ツ)_/¯.exe',
 ];
 
-/* ── Coffee cup (shown for 5 s after the coffee easter egg) ── */
+const BARKS = [
+  'Woof! 🐾',
+  'bork.exe',
+  '*tail.wag()',
+  '> bark --loud',
+  'henlo fren!',
+  'segfault (bork dumped)',
+];
+
+/* ── Coffee cup ── */
 function CoffeeIcon() {
   return (
     <svg className={styles.sprite} viewBox="0 0 70 75" fill="none" aria-hidden="true">
-      {/* steam */}
       <path d="M21 25 Q24 18 21 11" stroke="#8be9fd" strokeWidth="2.5" strokeLinecap="round" opacity="0.8"/>
       <path d="M33 22 Q36 15 33  8" stroke="#8be9fd" strokeWidth="2.5" strokeLinecap="round" opacity="0.8"/>
       <path d="M45 25 Q48 18 45 11" stroke="#8be9fd" strokeWidth="2.5" strokeLinecap="round" opacity="0.8"/>
-      {/* rim */}
       <rect x="12" y="27" width="42" height="7" rx="3" fill="#e8954a"/>
-      {/* body */}
       <path d="M14 34 L17 62 Q18 66 22 66 L48 66 Q52 66 53 62 L56 34 Z" fill="#ffb86c"/>
-      {/* handle */}
       <path d="M56 40 Q68 40 68 52 Q68 63 56 63" stroke="#e8954a" strokeWidth="5" strokeLinecap="round" fill="none"/>
-      {/* coffee surface */}
       <ellipse cx="35" cy="30.5" rx="19" ry="4" fill="#6b3a2a"/>
-      {/* highlight on cup */}
       <rect x="18" y="38" width="5" height="18" rx="2.5" fill="white" opacity="0.15"/>
     </svg>
   );
 }
 
-/* ── Dog (default sprite) ── */
+/* ── Dog — styled like 🐶 emoji ── */
 function DogIcon({ excited }) {
   return (
     <svg className={styles.sprite} viewBox="0 0 70 72" fill="none" aria-hidden="true">
-      {/* floppy left ear */}
-      <ellipse cx="15" cy="27" rx="9.5" ry="14" fill="#c8813a" transform="rotate(-12 15 27)"/>
-      {/* floppy right ear */}
-      <ellipse cx="55" cy="27" rx="9.5" ry="14" fill="#c8813a" transform="rotate(12 55 27)"/>
+      {/* big floppy ears — behind the head */}
+      <ellipse cx="12" cy="32" rx="12" ry="19" fill="#7B4A1E"/>
+      <ellipse cx="58" cy="32" rx="12" ry="19" fill="#7B4A1E"/>
+      {/* inner ear */}
+      <ellipse cx="12" cy="33" rx="7"  ry="13" fill="#A0622A" opacity="0.7"/>
+      <ellipse cx="58" cy="33" rx="7"  ry="13" fill="#A0622A" opacity="0.7"/>
+
       {/* head */}
-      <circle cx="35" cy="36" r="22" fill="#e8a040"/>
-      {/* inner ear shading */}
-      <ellipse cx="15" cy="27" rx="5" ry="9" fill="#e8954a" transform="rotate(-12 15 27)" opacity="0.6"/>
-      <ellipse cx="55" cy="27" rx="5" ry="9" fill="#e8954a" transform="rotate(12 55 27)" opacity="0.6"/>
+      <circle cx="35" cy="37" r="24" fill="#D4956A"/>
+
+      {/* snout patch */}
+      <ellipse cx="35" cy="46" rx="13" ry="10" fill="#BA7A4E"/>
+
       {/* left eye */}
-      <circle cx="26" cy="32" r="5" fill="#282a36"/>
-      <circle cx="27.8" cy="30.2" r="1.8" fill="white"/>
+      <circle cx="24" cy="33" r="7" fill="#1C1C2E"/>
+      <circle cx="26.2" cy="31" r="2.5" fill="white"/>
       {/* right eye */}
-      <circle cx="44" cy="32" r="5" fill="#282a36"/>
-      <circle cx="45.8" cy="30.2" r="1.8" fill="white"/>
+      <circle cx="46" cy="33" r="7" fill="#1C1C2E"/>
+      <circle cx="48.2" cy="31" r="2.5" fill="white"/>
+
       {/* nose */}
-      <ellipse cx="35" cy="40" rx="4.5" ry="3.5" fill="#282a36"/>
-      <circle cx="33.2" cy="40.2" r="1.2" fill="#5a3010"/>
-      <circle cx="36.8" cy="40.2" r="1.2" fill="#5a3010"/>
-      {/* mouth + tongue */}
+      <ellipse cx="35" cy="41" rx="6" ry="4.5" fill="#1C1C2E"/>
+      <ellipse cx="33" cy="39.5" rx="1.8" ry="1.2" fill="#3a3a5a" opacity="0.6"/>
+
+      {/* mouth / tongue */}
       {excited ? (
         <>
-          <path d="M27 45 Q35 52 43 45" stroke="#282a36" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
-          <ellipse cx="35" cy="51" rx="5.5" ry="4.5" fill="#ff79c6"/>
-          <line x1="35" y1="46.5" x2="35" y2="55" stroke="#e660a8" strokeWidth="1"/>
+          <path d="M28 48 Q35 54 42 48" stroke="#1C1C2E" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
+          <ellipse cx="35" cy="53.5" rx="6" ry="5" fill="#ff79c6"/>
+          <line x1="35" y1="48" x2="35" y2="58" stroke="#e660a8" strokeWidth="1.2"/>
         </>
       ) : (
-        <path d="M29 44 Q35 49 41 44" stroke="#282a36" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
+        <path d="M30 47 Q35 51 40 47" stroke="#1C1C2E" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
       )}
+
       {/* blush */}
-      <ellipse cx="17" cy="42" rx="5.5" ry="3" fill="#ffb86c" opacity="0.4"/>
-      <ellipse cx="53" cy="42" rx="5.5" ry="3" fill="#ffb86c" opacity="0.4"/>
+      <ellipse cx="15" cy="44" rx="5.5" ry="3" fill="#ffb86c" opacity="0.4"/>
+      <ellipse cx="55" cy="44" rx="5.5" ry="3" fill="#ffb86c" opacity="0.4"/>
+
       {/* excited sparkles */}
       {excited && (
         <>
-          <text x="1"  y="15" fontSize="10" fill="#f1fa8c" opacity="0.9">✦</text>
-          <text x="58" y="12" fontSize="8"  fill="#ff79c6" opacity="0.9">✦</text>
-          <text x="61" y="30" fontSize="7"  fill="#8be9fd" opacity="0.9">✦</text>
+          <text x="1"  y="14" fontSize="10" fill="#f1fa8c" opacity="0.9">✦</text>
+          <text x="58" y="11" fontSize="8"  fill="#ff79c6" opacity="0.9">✦</text>
+          <text x="61" y="28" fontSize="7"  fill="#8be9fd" opacity="0.9">✦</text>
         </>
       )}
     </svg>
@@ -85,23 +95,23 @@ export default function Mascot() {
   const [showQuip,    setShowQuip]    = useState(false);
   const [hovered,     setHovered]     = useState(false);
   const [coffeeMode,  setCoffeeMode]  = useState(false);
+  const [barking,     setBarking]     = useState(false);
+  const [barkMsg,     setBarkMsg]     = useState('');
   const [quipIdx]                     = useState(() => Math.floor(Math.random() * QUIPS.length));
+  const barkTimer                     = useRef(null);
 
-  // shared reset: any activity hides quip + calms dog
   const onActive = useCallback(() => {
     setIdleExcited(false);
     setShowQuip(false);
   }, []);
 
-  // 5 s idle → show speech bubble automatically
   const onQuipIdle    = useCallback(() => setShowQuip(true),    []);
-  // 18 s idle → excited dog
   const onExcitedIdle = useCallback(() => setIdleExcited(true), []);
 
   useIdleTimer(onQuipIdle,    onActive,  5000);
-  useIdleTimer(onExcitedIdle, onActive, 18000);
+  useIdleTimer(onExcitedIdle, onActive,  7000); // 7 s → excited
 
-  // listen for the coffee easter egg
+  // coffee easter egg
   useEffect(() => {
     function handleCoffee() {
       setCoffeeMode(true);
@@ -111,17 +121,41 @@ export default function Mascot() {
     return () => window.removeEventListener('portfolio:coffee', handleCoffee);
   }, []);
 
-  const bubbleVisible = hovered || showQuip;
+  // cleanup bark timer on unmount
+  useEffect(() => () => clearTimeout(barkTimer.current), []);
+
+  function handleClick(e) {
+    e.stopPropagation();
+    if (coffeeMode) return;
+    clearTimeout(barkTimer.current);
+    const msg = BARKS[Math.floor(Math.random() * BARKS.length)];
+    setBarkMsg(msg);
+    setBarking(true);
+    setShowQuip(false);
+    barkTimer.current = setTimeout(() => setBarking(false), 650);
+  }
+
+  // priority: barking > coffee > excited > float
+  const animClass = barking
+    ? styles.barking
+    : idleExcited && !coffeeMode
+      ? styles.excited
+      : styles.float;
+
+  const bubbleText    = barking ? barkMsg : QUIPS[quipIdx];
+  const bubbleVisible = barking || hovered || showQuip;
 
   return (
     <div
-      className={`${styles.wrapper} ${idleExcited && !coffeeMode ? styles.excited : styles.float}`}
+      className={`${styles.wrapper} ${animClass}`}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
+      onClick={handleClick}
+      style={{ cursor: coffeeMode ? 'default' : 'pointer' }}
     >
       {bubbleVisible && !coffeeMode && (
-        <div className={styles.bubble}>
-          {QUIPS[quipIdx]}
+        <div className={styles.bubble} key={barkMsg || quipIdx}>
+          {bubbleText}
         </div>
       )}
       {coffeeMode ? <CoffeeIcon /> : <DogIcon excited={idleExcited} />}

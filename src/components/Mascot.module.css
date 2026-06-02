@@ -1,10 +1,10 @@
 .wrapper {
   position: fixed;
   bottom: 72px;
-  left: 22px;       /* left side — away from CursorGag (right: 24px) */
+  left: 22px;
   z-index: 400;
   width: 72px;
-  cursor: default;
+  cursor: pointer;
   user-select: none;
 }
 
@@ -17,10 +17,10 @@
 }
 
 .wrapper:hover .sprite {
-  filter: drop-shadow(0 2px 14px rgba(232, 160, 64, 0.55));
+  filter: drop-shadow(0 2px 14px rgba(212, 149, 106, 0.6));
 }
 
-/* ── idle: gentle float ── */
+/* ── idle float ── */
 @keyframes float {
   0%, 100% { transform: translateY(0);    }
   50%       { transform: translateY(-7px); }
@@ -30,27 +30,41 @@
   animation: float 3.6s ease-in-out infinite;
 }
 
-/* ── excited (18 s idle): bouncy wiggle ── */
+/* ── excited (7 s idle): bouncy wiggle ── */
 @keyframes excited {
   0%, 100% { transform: translateY(0)     rotate(0deg);  }
-  20%       { transform: translateY(-11px) rotate(-6deg); }
-  40%       { transform: translateY(-5px)  rotate(5deg);  }
-  60%       { transform: translateY(-9px)  rotate(-4deg); }
-  80%       { transform: translateY(-3px)  rotate(3deg);  }
+  20%       { transform: translateY(-12px) rotate(-7deg); }
+  40%       { transform: translateY(-5px)  rotate(6deg);  }
+  60%       { transform: translateY(-10px) rotate(-5deg); }
+  80%       { transform: translateY(-3px)  rotate(4deg);  }
 }
 
 .excited {
   animation: excited 0.75s ease-in-out infinite;
 }
 
-/* ── speech bubble (opens to the right, tail bottom-left) ── */
+/* ── bark (on click): quick lunge + shake ── */
+@keyframes bark {
+  0%   { transform: scale(1)    rotate(0deg);   }
+  15%  { transform: scale(1.22) rotate(-12deg); }
+  35%  { transform: scale(1.18) rotate(10deg);  }
+  55%  { transform: scale(1.1)  rotate(-6deg);  }
+  75%  { transform: scale(1.04) rotate(3deg);   }
+  100% { transform: scale(1)    rotate(0deg);   }
+}
+
+.barking {
+  animation: bark 0.65s cubic-bezier(0.36, 0.07, 0.19, 0.97) forwards;
+}
+
+/* ── speech bubble ── */
 .bubble {
   position: absolute;
   bottom: calc(100% + 10px);
-  left: 0;                        /* aligns to left edge of mascot */
+  left: 0;
   background: rgba(40, 42, 54, 0.96);
   border: 1px solid var(--line);
-  border-radius: 8px 8px 8px 0;   /* tab cut-out on bottom-left */
+  border-radius: 8px 8px 8px 0;
   padding: 5px 10px;
   font-size: 11px;
   font-family: var(--font);
@@ -60,7 +74,6 @@
   animation: pop-in 0.15s ease forwards;
 }
 
-/* tail points down from bottom-left corner */
 .bubble::after {
   content: '';
   position: absolute;
