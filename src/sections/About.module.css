@@ -1,0 +1,113 @@
+.section {
+  margin-bottom: 60px;
+  scroll-margin-top: 80px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 20px;
+}
+
+.info {
+  padding: 8px 0;
+}
+
+.infoRow {
+  display: flex;
+  align-items: baseline;
+  gap: 0;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.socialRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 6px 0 4px;
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--cyan);
+  font-size: 13px;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.socialLink:hover {
+  color: var(--purple);
+  text-decoration: none;
+}
+
+.socialIcon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  color: inherit;
+}
+
+.bio {
+  margin: 20px 0 28px;
+  max-width: 640px;
+  line-height: 1.9;
+  white-space: pre-wrap;
+}
+
+.skills {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 24px;
+}
+
+.skillsLabel {
+  margin-bottom: 8px;
+}
+
+.skillRow {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.skillCat {
+  color: var(--cyan);
+  white-space: pre;
+  flex-shrink: 0;
+  min-width: 100px;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag {
+  background: rgba(189, 147, 249, 0.12);
+  color: var(--pink);
+  border: 1px solid rgba(189, 147, 249, 0.25);
+  border-radius: 3px;
+  padding: 1px 7px;
+  font-size: 12px;
+}
+
+.ascii {
+  margin-top: 16px;
+  font-size: 12px;
+  white-space: pre;
+}
+
+@media (max-width: 600px) {
+  .skillCat {
+    min-width: 80px;
+    font-size: 12px;
+  }
+}

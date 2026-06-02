@@ -1,0 +1,29 @@
+.block {
+  margin-bottom: 6px;
+}
+
+.dim .command {
+  opacity: 0.5;
+}
+
+.command {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0;
+  margin-bottom: 2px;
+  font-weight: 500;
+}
+
+.user   { color: var(--green); }
+.colon  { color: var(--fg); }
+.path   { color: var(--purple); }
+.dollar { color: var(--green); margin: 0 6px 0 2px; }
+.cmd    { color: var(--fg); }
+
+.output {
+  padding-left: 0;
+  color: var(--fg);
+  white-space: pre-wrap;
+  word-break: break-word;
+}

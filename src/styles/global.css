@@ -1,0 +1,94 @@
+/* Dracula palette */
+:root {
+  --bg:      #282a36;
+  --line:    #44475a;
+  --fg:      #f8f8f2;
+  --comment: #6272a4;
+  --cyan:    #8be9fd;
+  --green:   #50fa7b;
+  --orange:  #ffb86c;
+  --pink:    #ff79c6;
+  --purple:  #bd93f9;
+  --red:     #ff5555;
+  --yellow:  #f1fa8c;
+  --font:    'IBM Plex Mono', 'Courier New', Courier, monospace;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font);
+  font-size: 14px;
+  line-height: 1.7;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Subtle CRT scanline overlay */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.03) 2px,
+    rgba(0, 0, 0, 0.03) 4px
+  );
+  pointer-events: none;
+  z-index: 9999;
+}
+
+a {
+  color: var(--cyan);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+::selection {
+  background: var(--line);
+  color: var(--fg);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--line);
+  border-radius: 3px;
+}
+
+/* Utility classes */
+.text-green   { color: var(--green); }
+.text-purple  { color: var(--purple); }
+.text-cyan    { color: var(--cyan); }
+.text-pink    { color: var(--pink); }
+.text-orange  { color: var(--orange); }
+.text-red     { color: var(--red); }
+.text-yellow  { color: var(--yellow); }
+.text-comment { color: var(--comment); }
+.text-fg      { color: var(--fg); }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+}

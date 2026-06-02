@@ -1,0 +1,73 @@
+.section {
+  margin-bottom: 60px;
+  scroll-margin-top: 80px;
+}
+
+.block {
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.sectionHead {
+  margin-bottom: 12px;
+}
+
+.treeItem {
+  margin-bottom: 20px;
+}
+
+.period {
+  margin-bottom: 2px;
+}
+
+.tree {
+  margin-bottom: 2px;
+}
+
+.bullet {
+  padding-left: 0;
+  line-height: 1.8;
+}
+
+.pubRow {
+  margin-bottom: 10px;
+  line-height: 1.7;
+}
+
+.pubLink {
+  color: var(--cyan);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.pubLink:hover {
+  color: var(--purple);
+  text-decoration: underline;
+}
+
+.pubMeta {
+  display: block;
+  padding-left: 20px;
+  font-size: 12px;
+}
+
+.download {
+  margin-top: 28px;
+}
+
+.dlBtn {
+  display: inline-block;
+  color: var(--purple);
+  border: 1px solid var(--line);
+  padding: 6px 14px;
+  border-radius: 4px;
+  font-size: 13px;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.dlBtn:hover {
+  background: rgba(189, 147, 249, 0.1);
+  border-color: var(--purple);
+  color: var(--pink);
+  text-decoration: none;
+}

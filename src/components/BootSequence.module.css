@@ -1,0 +1,49 @@
+.boot {
+  padding: 8px 0 32px;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.lines {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 24px;
+}
+
+.line {
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.ascii {
+  color: var(--purple);
+  font-size: clamp(5px, 1.3vw, 13px);
+  line-height: 1.2;
+  white-space: pre;
+  overflow-x: auto;
+  margin: 16px 0 8px;
+  animation: boot-fade 0.4s ease forwards;
+  text-shadow: 0 0 20px rgba(189, 147, 249, 0.4);
+}
+
+.subtitle {
+  font-size: 14px;
+  margin-top: 4px;
+  animation: boot-fade 0.3s ease forwards;
+}
+
+.prompt {
+  margin-top: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  animation: boot-fade 0.2s ease forwards;
+}
+
+@media (max-width: 600px) {
+  .ascii {
+    font-size: clamp(4px, 2.2vw, 9px);
+  }
+}
