@@ -1,23 +1,23 @@
 .wrapper {
   position: fixed;
-  bottom: 72px;   /* sits just above the terminal bar */
-  right: 22px;
+  bottom: 72px;
+  left: 22px;       /* left side — away from CursorGag (right: 24px) */
   z-index: 400;
   width: 72px;
   cursor: default;
   user-select: none;
 }
 
-/* ── ghost SVG ── */
-.ghost {
+/* ── sprite drop-shadow ── */
+.sprite {
   width: 100%;
   height: auto;
-  filter: drop-shadow(0 0 8px rgba(189, 147, 249, 0.35));
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.45));
   transition: filter 0.3s;
 }
 
-.wrapper:hover .ghost {
-  filter: drop-shadow(0 0 14px rgba(189, 147, 249, 0.65));
+.wrapper:hover .sprite {
+  filter: drop-shadow(0 2px 14px rgba(232, 160, 64, 0.55));
 }
 
 /* ── idle: gentle float ── */
@@ -30,9 +30,9 @@
   animation: float 3.6s ease-in-out infinite;
 }
 
-/* ── excited (after 18 s idle): bouncy wiggle + star eyes ── */
+/* ── excited (18 s idle): bouncy wiggle ── */
 @keyframes excited {
-  0%, 100% { transform: translateY(0)    rotate(0deg);  }
+  0%, 100% { transform: translateY(0)     rotate(0deg);  }
   20%       { transform: translateY(-11px) rotate(-6deg); }
   40%       { transform: translateY(-5px)  rotate(5deg);  }
   60%       { transform: translateY(-9px)  rotate(-4deg); }
@@ -43,14 +43,14 @@
   animation: excited 0.75s ease-in-out infinite;
 }
 
-/* ── speech bubble ── */
+/* ── speech bubble (opens to the right, tail bottom-left) ── */
 .bubble {
   position: absolute;
   bottom: calc(100% + 10px);
-  right: 0;
+  left: 0;                        /* aligns to left edge of mascot */
   background: rgba(40, 42, 54, 0.96);
   border: 1px solid var(--line);
-  border-radius: 8px 8px 0 8px;
+  border-radius: 8px 8px 8px 0;   /* tab cut-out on bottom-left */
   padding: 5px 10px;
   font-size: 11px;
   font-family: var(--font);
@@ -60,12 +60,12 @@
   animation: pop-in 0.15s ease forwards;
 }
 
-/* tail of the bubble */
+/* tail points down from bottom-left corner */
 .bubble::after {
   content: '';
   position: absolute;
   bottom: -7px;
-  right: 4px;
+  left: 4px;
   border: 4px solid transparent;
   border-top-color: var(--line);
 }
@@ -78,7 +78,7 @@
 @media (max-width: 600px) {
   .wrapper {
     width: 56px;
-    right: 12px;
+    left: 12px;
     bottom: 62px;
   }
 }

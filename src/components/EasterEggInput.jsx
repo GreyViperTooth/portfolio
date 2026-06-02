@@ -42,6 +42,9 @@ export default function EasterEggInput({ glitchRef }) {
       if (egg.type === 'scroll' && egg.section) {
         document.getElementById(egg.section)?.scrollIntoView({ behavior: 'smooth' });
       }
+      if (cmd === 'coffee') {
+        window.dispatchEvent(new CustomEvent('portfolio:coffee'));
+      }
       setHistory(h => [...h, { cmd, output: egg.output }]);
     } else {
       setHistory(h => [...h, {
