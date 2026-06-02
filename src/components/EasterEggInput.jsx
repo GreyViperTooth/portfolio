@@ -27,6 +27,11 @@ export default function EasterEggInput({ glitchRef }) {
 
     const egg = EASTER_EGGS[cmd];
     if (egg) {
+      if (egg.type === 'clear') {
+        setHistory([]);
+        setValue('');
+        return;
+      }
       if (egg.type === 'matrix') {
         setShowMatrix(true);
       }
@@ -34,10 +39,8 @@ export default function EasterEggInput({ glitchRef }) {
         glitchRef.current.classList.add('glitch');
         setTimeout(() => glitchRef.current?.classList.remove('glitch'), 700);
       }
-      if (cmd === 'clear') {
-        setHistory([]);
-        setValue('');
-        return;
+      if (egg.type === 'scroll' && egg.section) {
+        document.getElementById(egg.section)?.scrollIntoView({ behavior: 'smooth' });
       }
       setHistory(h => [...h, { cmd, output: egg.output }]);
     } else {

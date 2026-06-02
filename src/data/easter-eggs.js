@@ -1,4 +1,30 @@
 export const EASTER_EGGS = {
+  // Navigation commands (listed in help)
+  about: {
+    output: '→ scrolling to about.txt ...',
+    type: 'scroll',
+    section: 'about',
+  },
+  projects: {
+    output: '→ navigating to projects/ ...',
+    type: 'scroll',
+    section: 'projects',
+  },
+  experience: {
+    output: '→ loading resume.md ...',
+    type: 'scroll',
+    section: 'experience',
+  },
+  contact: {
+    output: '→ dispatching curl to contact.json ...',
+    type: 'scroll',
+    section: 'contact',
+  },
+  clear: {
+    output: '',
+    type: 'clear',
+  },
+
   help: {
     output: `Available commands:
   about       → cat about.txt

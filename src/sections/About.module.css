@@ -103,6 +103,7 @@
   margin-top: 16px;
   font-size: 12px;
   white-space: pre;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 @media (max-width: 600px) {

@@ -45,9 +45,7 @@ export default function BootSequence({ onDone }) {
       </div>
 
       {showAscii && (
-        <pre className={styles.ascii}>
-          {ASCII_NAME}
-        </pre>
+        <pre className={styles.ascii}>{ASCII_NAME}</pre>
       )}
 
       {showSubtitle && (

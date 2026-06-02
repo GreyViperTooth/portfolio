@@ -90,12 +90,10 @@ export default function About() {
           ))}
         </div>
 
-        <div className={styles.ascii}>
-          <span className="text-comment">{`     __
+        <pre className={`${styles.ascii} text-comment`}>{`     __
     /  \\
    |[_]|  ← where the magic happens
-   |___|`}</span>
-        </div>
+   |___|`}</pre>
       </Prompt>
     </section>
   );

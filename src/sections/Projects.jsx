@@ -56,7 +56,7 @@ export default function Projects() {
                       <div className={styles.cardTop}>
                         <span className="text-comment">┌─ </span>
                         <span className="text-cyan">{p.name}</span>
-                        <span className="text-comment"> {'─'.repeat(Math.max(0, 36 - p.name.length))}┐</span>
+                        <span className="text-comment"> {'─'.repeat(Math.max(0, 39 - p.name.length))}┐</span>
                       </div>
                       <div className={styles.cardBody}>
                         <div className={styles.cardDesc}>
