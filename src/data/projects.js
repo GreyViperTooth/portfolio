@@ -20,6 +20,16 @@ export const projects = [
     demo: null,
   },
   {
+    id: 'go-monitor',
+    name: 'Production HTTP Service Monitor — Go',
+    description:
+      'Built and deployed a production-grade service monitoring agent in Go. Implements concurrent health checks across registered targets using goroutines and buffered channels, a thread-safe in-memory store backed by sync.Mutex, and a background worker on a 30-second ticker that maintains a rolling 100-result history per service. Exposes a /report endpoint with live uptime percentage and average response latency. Deployed on AWS EC2 (Ubuntu 24.04) with a systemd daemon for auto-restart, Nginx reverse proxy on port 80, and cross-compiled for Linux from Windows.',
+    tech: ['Go', 'goroutines', 'AWS EC2', 'Nginx', 'systemd', 'Linux', 'REST API'],
+    type: 'Personal',
+    github: 'https://github.com/GreyViperTooth',
+    demo: null,
+  },
+  {
     id: 'cursorpilot',
     name: 'CursorPilot — Vision-Based HCI',
     description:
