@@ -94,7 +94,7 @@ export const certifications = [
     title: 'AWS Certified Cloud Practitioner',
     issuer: 'Amazon Web Services',
     date: '2024',
-    url: null,
+    url: 'https://www.credly.com/badges/9c837334-c635-4424-a639-e419730fe9ad/public_url',
   },
 ];
 

@@ -53,7 +53,7 @@ export default function Experience() {
           </div>
 
           {/* Certifications */}
-          <SectionHead label="CERTIFICATIONS" top />
+          <SectionHead label="CERTIFICATIONS" top href="https://www.credly.com/users/maanav-anand-kumar" />
           <div className={styles.treeItem}>
             {certifications.map((c, i) => (
               <div key={i} className={styles.bullet}>
@@ -93,10 +93,12 @@ export default function Experience() {
   );
 }
 
-function SectionHead({ label, top }) {
+function SectionHead({ label, top, href }) {
   return (
     <div className={styles.sectionHead} style={top ? { marginTop: 28 } : {}}>
-      <span className="text-yellow">{label}</span>
+      {href
+        ? <a href={href} target="_blank" rel="noopener noreferrer" className={`text-yellow ${styles.sectionLink}`}>{label}</a>
+        : <span className="text-yellow">{label}</span>}
       <br />
       <span className="text-comment">{'─'.repeat(label.length)}</span>
     </div>
