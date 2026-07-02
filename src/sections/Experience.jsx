@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import Prompt from '../components/Prompt';
-import { experience, education, publications, leadership } from '../data/experience';
+import { experience, education, publications, leadership, certifications } from '../data/experience';
 import styles from './Experience.module.css';
 
 export default function Experience() {
@@ -48,6 +48,21 @@ export default function Experience() {
                   <span className="text-comment">  ·  </span>
                   <span className="text-yellow">{pub.date}</span>
                 </span>
+              </div>
+            ))}
+          </div>
+
+          {/* Certifications */}
+          <SectionHead label="CERTIFICATIONS" top />
+          <div className={styles.treeItem}>
+            {certifications.map((c, i) => (
+              <div key={i} className={styles.bullet}>
+                <span className="text-comment">{i === certifications.length - 1 ? '└' : '├'}── </span>
+                <span className="text-green">{c.title}</span>
+                <span className="text-comment"> @ </span>
+                <span className="text-fg">{c.issuer}</span>
+                {c.date && <span className="text-comment">  [{c.date}]</span>}
+                {c.url && <> <a href={c.url} target="_blank" rel="noopener noreferrer" className={styles.certLink}>[verify ↗]</a></>}
               </div>
             ))}
           </div>

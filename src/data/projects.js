@@ -20,6 +20,16 @@ export const projects = [
     demo: null,
   },
   {
+    id: 'minicraft-cli',
+    name: 'minicraft-CLI',
+    description:
+      'A lightweight Python CLI reimplementation of Canonical\'s craft-parts — the open-source packaging and build lifecycle orchestration engine powering Snapcraft and Charmcraft. Parses YAML project definitions to manage and execute multi-step build pipelines, replicating core lifecycle semantics of the upstream library in a minimal, dependency-light package.',
+    tech: ['Python', 'YAML', 'CLI', 'Build Systems'],
+    type: 'Personal',
+    github: 'https://github.com/GreyViperTooth/minicraft-CLI',
+    demo: null,
+  },
+  {
     id: 'go-monitor',
     name: 'Production HTTP Service Monitor — Go',
     description:

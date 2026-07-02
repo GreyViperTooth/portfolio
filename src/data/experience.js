@@ -89,6 +89,15 @@ export const publications = [
   },
 ];
 
+export const certifications = [
+  {
+    title: 'AWS Certified Cloud Practitioner',
+    issuer: 'Amazon Web Services',
+    date: '2024',
+    url: null,
+  },
+];
+
 export const leadership = [
   {
     title: 'Computer Science Senator',
