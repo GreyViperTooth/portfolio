@@ -85,6 +85,14 @@ export default function Projects() {
                               </a>
                             </>
                           )}
+                          {p.store && (
+                            <>
+                              {'  '}
+                              <a href={p.store} target="_blank" rel="noopener noreferrer" className={styles.link}>
+                                [Snap Store ↗]
+                              </a>
+                            </>
+                          )}
                         </div>
                       </div>
                       <div className={styles.cardBottom}>
