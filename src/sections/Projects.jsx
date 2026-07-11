@@ -4,9 +4,10 @@ import { projects } from '../data/projects';
 import styles from './Projects.module.css';
 
 const TYPE_COLOR = {
-  Research: 'text-purple',
-  Course:   'text-cyan',
-  Personal: 'text-green',
+  Research:     'text-purple',
+  Course:       'text-cyan',
+  Personal:     'text-green',
+  'Open Source': 'text-orange',
 };
 
 export default function Projects() {
@@ -45,7 +46,11 @@ export default function Projects() {
                 <span className="text-comment">drwxr-xr-x</span>
                 <span className={styles.name}>{p.id}</span>
                 <span className={styles.techList}>[{p.tech.slice(0, 3).join(', ')}{p.tech.length > 3 ? ', …' : ''}]</span>
-                <span className={`${styles.badge} ${TYPE_COLOR[p.type] || 'text-comment'}`}>{p.type}</span>
+                <span className={styles.badges}>
+                  {(p.types || [p.type]).map(t => (
+                    <span key={t} className={`${styles.badge} ${TYPE_COLOR[t] || 'text-comment'}`}>{t}</span>
+                  ))}
+                </span>
                 <span className={`${styles.arrow} ${expanded === p.id ? styles.down : ''}`}>▶</span>
               </button>
 

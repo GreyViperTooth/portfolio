@@ -54,6 +54,12 @@
   flex: 1;
 }
 
+.badges {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
 .badge {
   font-size: 11px;
   white-space: nowrap;
