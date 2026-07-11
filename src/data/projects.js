@@ -3,7 +3,7 @@ export const projects = [
     id: 'draftcraft',
     name: 'draftcraft',
     description:
-      'Python CLI tool that generates draft snapcraft.yaml files by inspecting a project directory — "docker init for Snapcraft". Reads language manifests (pyproject.toml, package.json, go.mod, Cargo.toml) and maps dependencies to snap interfaces and Ubuntu packages. Core design uses a typed IR with confidence levels (CERTAIN / INFERRED / GUESS): certain facts render as clean YAML, inferences as # verify: comments, guesses as # TODO comments — the tool never presents a guess as a fact. Ships as a strictly confined snap auto-published to the Snap Store edge channel via GitHub Actions CI (lint + tests on Python 3.10/3.12, snapcraft pack, smoke test). 84 pytest tests including golden-file tests validated against real snapcraft schema.',
+      'Python CLI that scaffolds snapcraft.yaml files by inspecting a project directory — "docker init for Snapcraft". Reads language manifests (pyproject.toml, package.json, go.mod, Cargo.toml) to infer snap configuration, interfaces, and Ubuntu package dependencies. Published to the Snap Store and auto-released via GitHub Actions CI with pytest and mypy.',
     tech: ['Python', 'snapcraft', 'craft-cli', 'ruamel.yaml', 'pytest', 'GitHub Actions', 'Snap Store', 'mypy', 'ruff'],
     types: ['Personal', 'Open Source'],
     github: 'https://github.com/GreyViperTooth/draftcraft',
