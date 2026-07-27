@@ -96,6 +96,12 @@ export const certifications = [
     date: '2026',
     url: 'https://www.credly.com/badges/9c837334-c635-4424-a639-e419730fe9ad/public_url',
   },
+  {
+    title: 'Applied Skills: Develop AI Agents in Microsoft Foundry',
+    issuer: 'Microsoft',
+    date: null,
+    url: 'https://learn.microsoft.com/api/credentials/share/en-us/MaanavAnandKumar-6438/B60991B37FE611FC?sharingId=4E5EBFD263AD8A3',
+  },
 ];
 
 export const leadership = [
