@@ -108,8 +108,8 @@ export default function Mascot() {
   const onQuipIdle    = useCallback(() => setShowQuip(true),    []);
   const onExcitedIdle = useCallback(() => setIdleExcited(true), []);
 
-  useIdleTimer(onQuipIdle,    onActive,  5000);
-  useIdleTimer(onExcitedIdle, onActive,  7000); // 7 s → excited
+  useIdleTimer(onQuipIdle,    onActive,  8000);
+  useIdleTimer(onExcitedIdle, onActive, 20000);
 
   // coffee easter egg
   useEffect(() => {
